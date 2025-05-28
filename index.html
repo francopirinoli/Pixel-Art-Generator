@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Art Item Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for better canvas rendering if needed */
+        canvas {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+            /* Ensure the canvas is not blurred by default browser scaling */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 flex flex-col items-center justify-center min-h-screen font-sans p-4">
+
+    <div class="w-full max-w-2xl bg-gray-800 shadow-2xl rounded-xl p-6 md:p-8">
+        <header class="mb-8 text-center">
+            <h1 class="text-4xl font-bold text-purple-400">Pixel Art Item Generator</h1>
+            <p class="text-gray-400 mt-2">Create unique procedurally generated pixel art items!</p>
+        </header>
+
+        <section id="controls-section" class="mb-8 flex flex-col gap-4">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-3 flex-grow w-full sm:w-auto">
+                    <label for="item-type-select" class="text-lg text-gray-300 shrink-0">Item Type:</label>
+                    <select id="item-type-select" class="bg-gray-700 border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 appearance-none">
+                        <option selected disabled>Loading types...</option>
+                    </select>
+                </div>
+
+                <div id="sub-type-controls-container" class="flex flex-col sm:flex-row sm:items-center gap-3 flex-grow w-full sm:w-auto hidden">
+                    <label for="item-sub-type-select" class="text-lg text-gray-300 shrink-0">Sub-Type:</label>
+                    <select id="item-sub-type-select" class="bg-gray-700 border border-gray-600 text-gray-100 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5 appearance-none">
+                        </select>
+                </div>
+            </div>
+
+            <button id="generate-button" class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md transition duration-150 ease-in-out w-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-opacity-50">
+                Generate New Item
+            </button>
+        </section>
+
+        <section id="display-area" class="mb-6 flex justify-center items-center">
+            <div class="bg-gray-700 p-2 rounded-lg shadow-inner">
+                <canvas id="item-canvas" width="256" height="256" class="border-2 border-gray-600 rounded-md bg-gray-800">
+                    Your browser does not support the canvas element.
+                </canvas>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-xs mt-8">
+            <p>&copy; Made by Franco Pirinoli, 2025. Powered by Procedural Magic.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>
